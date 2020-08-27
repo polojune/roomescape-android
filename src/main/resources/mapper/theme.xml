@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cos.roomescape.repository.ThemeRepository">
+ <!-- <insert id="save">
+    INSERT INTO user(username,password,email,role,createDate,provider,providerId)
+    VALUES(#{username},#{password},#{email},#{role},now(),#{provider},#{providerId})
+  </insert>-->
+  
+<!--    <select id="login" resultType="com.cos.roomescape.model.User"> 
+     SELECT id,username,email,role,createDate,provider,providerId FROM user WHERE username=#{username} 
+      AND password = #{password} 
+  
+  </select>-->
+ 
+  <select id="findAll" resultType="com.cos.roomescape.model.Theme">
+      SELECT * FROM theme ORDER BY id DESC
+  </select>
+    
+  <select id="findById" resultType="com.cos.roomescape.model.Theme"> 
+     SELECT * FROM Theme WHERE id = #{id}
+  </select>  
+    
+  <select id="findByStoreId" resultType="com.cos.roomescape.dto.ThemeRespDto">
+      SELECT * FROM theme WHERE storeId = #{storeId}
+  </select>
+  <select id="findThemeByStoreId" resultType="com.cos.roomescape.dto.ReserveThemeRespDto">
+  	SELECT id, name FROM theme WHERE storeId = #{storeId}
+  </select>
+      
+</mapper>
